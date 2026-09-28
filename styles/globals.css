@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  /* CSS Reset/Base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Accessible focus states */
+  *:focus-visible {
+    outline: 2px solid theme('colors.blue.600');
+    outline-offset: 2px;
+  }
+}
