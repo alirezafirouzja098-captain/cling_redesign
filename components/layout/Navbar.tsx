@@ -50,12 +50,19 @@ export function Navbar() {
                     />
                   </button>
                   {openDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-1 w-56 rounded-xl bg-white border border-[#E2E8F0] shadow-xl py-1.5 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-64 rounded-xl bg-white border border-[#E2E8F0] shadow-xl py-1.5 z-50">
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#4F46E5] hover:bg-indigo-50/50 border-b border-[#E2E8F0] mb-1"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        All Services Overview &rarr;
+                      </Link>
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="block px-4 py-2.5 text-sm text-[#475569] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-colors"
+                          className="block px-4 py-2 text-sm text-[#475569] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-colors"
                           onClick={() => setOpenDropdown(null)}
                         >
                           {sub.label}
@@ -91,7 +98,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-[#475569] hover:bg-[#F8FAFC] transition-colors"
+            className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#475569] hover:bg-[#F8FAFC] transition-colors"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -122,7 +129,14 @@ export function Navbar() {
                     />
                   </button>
                   {openDropdown === item.label && (
-                    <div className="ml-4 mt-1 flex flex-col gap-1">
+                    <div className="ml-4 mt-1 flex flex-col gap-1 border-l-2 border-[#E2E8F0] pl-2">
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#4F46E5] rounded-lg hover:bg-indigo-50"
+                        onClick={() => { setIsOpen(false); setOpenDropdown(null); }}
+                      >
+                        All Services Overview &rarr;
+                      </Link>
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}

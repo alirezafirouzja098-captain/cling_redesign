@@ -24,7 +24,7 @@ export function WorkFilter() {
               key={f.value}
               onClick={() => setActive(f.value)}
               aria-pressed={active === f.value}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border
+              className={`px-5 py-2.5 min-h-[42px] rounded-full text-sm font-medium transition-all duration-200 border
                 ${
                   active === f.value
                     ? "bg-[#4F46E5] text-white border-[#4F46E5] shadow-sm"

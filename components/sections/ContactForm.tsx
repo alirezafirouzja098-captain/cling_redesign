@@ -107,6 +107,24 @@ export function ContactForm() {
           Thank you for reaching out. The Cling team will get back to you within
           one business day.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            setSubmitted(false);
+            setValues({
+              fullName: "",
+              email: "",
+              phone: "",
+              company: "",
+              projectType: "",
+              message: "",
+            });
+            setErrors({});
+          }}
+          className="mt-2 text-sm font-medium text-[#4F46E5] hover:text-[#4338CA] underline underline-offset-4 cursor-pointer"
+        >
+          Send another inquiry &rarr;
+        </button>
       </div>
     );
   }

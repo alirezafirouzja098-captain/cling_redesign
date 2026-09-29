@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ui/Cards";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Our Products — Software Built by Cling | Cling Info Tech",
+  title: "Our Products — Software Built by Cling",
   description:
     "Discover ClingERP and ClingPortal — purpose-built software products from Cling Info Tech, designed to solve real business challenges for SMEs and organisations.",
 };

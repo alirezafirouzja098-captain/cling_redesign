@@ -3,7 +3,7 @@ import Link from "next/link";
 import { WorkFilter } from "@/components/sections/WorkFilter";
 
 export const metadata: Metadata = {
-  title: "Our Work — Portfolio | Cling Info Tech",
+  title: "Our Work — Portfolio",
   description:
     "Browse Cling Info Tech's portfolio of delivered projects across web, mobile, AI/ML, ERP, and 3D animation. Real solutions, measurable results.",
 };
