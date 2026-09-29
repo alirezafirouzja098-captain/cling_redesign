@@ -1,26 +1,52 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import "@/styles/globals.css";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#0B1120",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://clinginfotech.com"),
   title: {
     template: "%s | Cling Info Tech",
-    default: "IT Solutions & Web Development Services - Cling Info Tech",
+    default: "IT Solutions & Web Development Services — Cling Info Tech",
   },
   description:
-    "Leading IT solutions provider offering web development, mobile apps, digital marketing, ERP development & custom web portals.",
+    "Leading IT solutions provider offering web development, mobile apps, AI/ML, ERP development & custom web portals. 350+ happy clients, 390+ projects completed.",
+  keywords: [
+    "IT solutions",
+    "web development",
+    "mobile app development",
+    "AI ML",
+    "ERP development",
+    "digital marketing",
+    "Cling Info Tech",
+  ],
+  authors: [{ name: "Cling Info Tech" }],
+  creator: "Cling Info Tech",
+  publisher: "Cling Multi Solutions Pvt Ltd",
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "IT Solutions & Web Development Services - Cling Info Tech",
+    title: "IT Solutions & Web Development Services — Cling Info Tech",
     description:
-      "Leading IT solutions provider offering web development, mobile apps, digital marketing, ERP development & custom web portals.",
+      "Leading IT solutions provider offering web development, mobile apps, AI/ML, ERP development & custom web portals.",
     url: "https://clinginfotech.com",
     siteName: "Cling Info Tech",
     images: [
@@ -28,15 +54,21 @@ export const metadata: Metadata = {
         url: "/images/branding/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Cling Info Tech - Making Your Ideas Happen!",
+        alt: "Cling Info Tech — Making Your Ideas Happen!",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Solutions & Web Development Services — Cling Info Tech",
+    description:
+      "Leading IT solutions provider offering web development, mobile apps, AI/ML, ERP development & custom web portals.",
+    images: ["/images/branding/og-image.jpg"],
+  },
   icons: {
     icon: "/favicon.ico",
-    apple: "/images/branding/apple-icon.png",
   },
 };
 
@@ -46,24 +78,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased bg-white text-slate-900 min-h-screen flex flex-col`}>
-        {/* Placeholder for Navbar */}
-        <header className="border-b border-gray-200 bg-white sticky top-0 z-50 p-4">
-          <div className="container mx-auto font-bold text-xl">Cling Info Tech</div>
-        </header>
-        
-        {/* Main Content Area */}
-        <main className="flex-grow container mx-auto p-4">
-          {children}
-        </main>
-
-        {/* Placeholder for Footer */}
-        <footer className="bg-slate-900 text-white p-8">
-          <div className="container mx-auto text-sm text-center">
-            &copy; {new Date().getFullYear()} Cling Multi Solutions Pvt Ltd. All Rights Reserved.
-          </div>
-        </footer>
+    <html lang="en" className={`${inter.variable} ${jakartaSans.variable}`}>
+      <body className="bg-white text-[#475569] antialiased flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
