@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -18,21 +18,21 @@ export default function CareersPage() {
 
   return (
     <>
-      <section className="bg-[#0B1120] py-20 md:py-28 text-center" aria-label="Careers hero">
+      <section className="bg-[#11100F] py-20 md:py-28 text-center border-b border-[#262220]" aria-label="Careers hero">
         <div className="container-xl max-w-3xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#06B6D4]">
-            Careers
+          <span className="text-xs font-bold uppercase tracking-widest text-[#D8CBB9]">
+            Careers at Cling
           </span>
-          <h1 className="font-display mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+          <h1 className="font-display mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4EBDD] tracking-tight leading-tight">
             Do the best work of your career.
           </h1>
-          <p className="mt-6 text-lg text-[#94A3B8] leading-relaxed">
-            We're always looking for talented engineers, designers, and thinkers to join our growing team.
+          <p className="mt-6 text-base md:text-lg text-[#A89C92] leading-relaxed">
+            We are always looking for talented engineers, designers, and systems architects to join our growing team.
           </p>
         </div>
       </section>
 
-      <section className="section-py border-b border-[#E2E8F0]">
+      <section className="section-py bg-[#F4EBDD] border-b border-[#D8CBB9]">
         <div className="container-xl">
           <SectionHeading
             eyebrow="Why Cling"
@@ -43,35 +43,35 @@ export default function CareersPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {reasons.map((r) => (
-              <div key={r.title} className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
-                <CheckCircle size={24} className="text-[#4F46E5] mb-4" />
-                <h3 className="font-display font-semibold text-[#0F172A] mb-2">{r.title}</h3>
-                <p className="text-sm text-[#475569]">{r.desc}</p>
+              <div key={r.title} className="p-6 rounded-md bg-[#FAF6EF] border border-[#D8CBB9]">
+                <CheckCircle size={22} className="text-[#641C2D] mb-4" />
+                <h3 className="font-display font-bold text-base text-[#171514] mb-2">{r.title}</h3>
+                <p className="text-xs md:text-sm text-[#665B57] leading-relaxed">{r.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-py bg-[#F8FAFC]">
+      <section className="section-py bg-[#EFE4D2]">
         <div className="container-xl max-w-3xl mx-auto text-center">
           <SectionHeading
             heading="Open Positions"
             align="center"
             className="mb-8"
           />
-          <div className="bg-white p-12 rounded-2xl border border-[#E2E8F0] shadow-sm">
-            <h3 className="text-xl font-bold text-[#0F172A] mb-3">
+          <div className="bg-[#FAF6EF] p-10 md:p-14 rounded-md border border-[#D8CBB9]">
+            <h3 className="text-xl font-bold text-[#171514] mb-3 font-display">
               No open positions listed at this time.
             </h3>
-            <p className="text-[#475569] mb-8">
-              We're not actively hiring right now, but we're always happy to meet talented people. Check back soon or send your CV proactively.
+            <p className="text-sm text-[#665B57] mb-8 leading-relaxed">
+              We&apos;re not actively recruiting right now, but we always welcome conversations with exceptional talent. Check back soon or send your credentials proactively.
             </p>
-            <p className="text-xs text-[#94A3B8] uppercase tracking-widest mb-4 font-semibold">
+            <p className="text-[11px] text-[#8F827B] uppercase tracking-widest mb-5 font-bold">
               [CONTENT TO VERIFY]
             </p>
             <Button href="mailto:info@clinginfotech.com" variant="primary">
-              Email your CV
+              Email Your Resume
             </Button>
           </div>
         </div>

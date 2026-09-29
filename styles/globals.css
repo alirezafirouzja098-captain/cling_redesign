@@ -3,35 +3,40 @@
 /* ─── Design Tokens (CSS Variables) ─────────────────────────────────────── */
 @layer base {
   :root {
-    /* Brand */
-    --color-deep-space:   #0B1120;
-    --color-indigo:       #4F46E5;
-    --color-cyan:         #06B6D4;
+    /* Brand Palette - Burgundy, Black, Cream */
+    --color-cream:         #F4EBDD;
+    --color-cream-alt:     #EFE4D2;
+    --color-cream-surface: #FAF6EF;
+    --color-burgundy:      #641C2D;
+    --color-burgundy-rich: #8A263D;
+    --color-black:         #11100F;
+    --color-black-surface: #1A1817;
 
     /* Surfaces */
-    --color-surface:      #FFFFFF;
-    --color-surface-alt:  #F8FAFC;
-    --color-surface-dark: #1E293B;
+    --color-surface:       #F4EBDD;
+    --color-surface-alt:   #EFE4D2;
+    --color-surface-card:  #FAF6EF;
+    --color-surface-dark:  #11100F;
 
     /* Text */
-    --color-text:         #0F172A;
-    --color-text-body:    #475569;
-    --color-text-muted:   #94A3B8;
-    --color-text-inverse: #F8FAFC;
+    --color-text:          #171514;
+    --color-text-body:     #665B57;
+    --color-text-muted:    #8F827B;
+    --color-text-inverse:  #F4EBDD;
+    --color-text-inverse-muted: #A89C92;
 
     /* Borders */
-    --color-border:       #E2E8F0;
-    --color-border-dark:  #334155;
+    --color-border:        #D8CBB9;
+    --color-border-dark:   #2D2724;
 
     /* States */
-    --color-error:        #EF4444;
-    --color-success:      #10B981;
+    --color-error:         #991B1B;
+    --color-success:       #166534;
 
-    /* Motion */
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --duration-fast:  150ms;
-    --duration-base:  250ms;
-    --duration-slow:  400ms;
+    /* Motion - Restrained and Subtle */
+    --ease-editorial:      cubic-bezier(0.2, 0, 0, 1);
+    --duration-fast:       150ms;
+    --duration-base:       200ms;
   }
 
   /* ─── Base Reset & Typography ─── */
@@ -44,11 +49,12 @@
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    background-color: var(--color-surface);
   }
 
   body {
     font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-    color: var(--color-text-body);
+    color: var(--color-text);
     background-color: var(--color-surface);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -58,9 +64,9 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
     color: var(--color-text);
-    line-height: 1.15;
+    line-height: 1.18;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   img, video {
@@ -80,9 +86,9 @@
 
   /* ─── Accessible Focus States ─── */
   *:focus-visible {
-    outline: 2px solid var(--color-indigo);
-    outline-offset: 3px;
-    border-radius: 4px;
+    outline: 2px solid var(--color-burgundy);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   /* ─── Reduced motion ─── */
@@ -102,11 +108,12 @@
     font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   }
 
+  /* Solid editorial color instead of AI text-gradient */
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-indigo), var(--color-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #641C2D;
+    background: none;
+    -webkit-text-fill-color: initial;
+    background-clip: unset;
   }
 
   .container-xl {
@@ -133,14 +140,14 @@
   }
 
   .section-py {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
   }
 
   @media (min-width: 1024px) {
     .section-py {
-      padding-top: 7.5rem;
-      padding-bottom: 7.5rem;
+      padding-top: 6.5rem;
+      padding-bottom: 6.5rem;
     }
   }
 }

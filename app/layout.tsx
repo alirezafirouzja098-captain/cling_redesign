@@ -18,7 +18,7 @@ const jakartaSans = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0B1120",
+  themeColor: "#11100F",
   width: "device-width",
   initialScale: 1,
 };
@@ -80,7 +80,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jakartaSans.variable}`}>
-      <body className="bg-white text-[#475569] antialiased flex flex-col min-h-screen">
+      <body className="bg-[#F4EBDD] text-[#171514] antialiased flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

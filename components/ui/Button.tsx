@@ -14,18 +14,18 @@ interface ButtonProps {
 }
 
 const sizeClasses = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-base",
+  sm: "px-4 py-2 text-xs font-semibold uppercase tracking-wider",
+  md: "px-5 py-2.5 text-sm font-semibold",
+  lg: "px-7 py-3.5 text-sm md:text-base font-semibold",
 };
 
 const variantClasses = {
   primary:
-    "bg-[#4F46E5] text-white shadow-sm hover:bg-[#4338CA] hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-sm disabled:opacity-50 disabled:pointer-events-none",
+    "bg-[#641C2D] text-[#F4EBDD] border border-[#641C2D] hover:bg-[#8A263D] hover:border-[#8A263D] active:bg-[#4E1422] disabled:opacity-50 disabled:pointer-events-none",
   secondary:
-    "bg-transparent border border-[#E2E8F0] text-[#0F172A] hover:bg-[#F8FAFC] hover:border-[#CBD5E1] active:bg-[#F1F5F9] disabled:opacity-50 disabled:pointer-events-none",
+    "bg-transparent border border-[#171514] text-[#171514] hover:bg-[#171514] hover:text-[#F4EBDD] active:bg-[#2A2421] disabled:opacity-50 disabled:pointer-events-none",
   ghost:
-    "bg-transparent text-[#4F46E5] hover:text-[#4338CA] underline-offset-4 hover:underline disabled:opacity-50 disabled:pointer-events-none",
+    "bg-transparent text-[#641C2D] hover:text-[#8A263D] underline-offset-4 hover:underline disabled:opacity-50 disabled:pointer-events-none",
 };
 
 export function Button({
@@ -41,7 +41,7 @@ export function Button({
   "aria-label": ariaLabel,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 cursor-pointer";
+    "inline-flex items-center justify-center gap-2 rounded-md transition-colors duration-150 cursor-pointer select-none text-center";
   const classes = `${base} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   if (href) {

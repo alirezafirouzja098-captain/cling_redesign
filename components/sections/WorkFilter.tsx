@@ -11,7 +11,7 @@ export function WorkFilter() {
     active === "all" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section className="section-py" aria-label="Portfolio filter and grid">
+    <section className="section-py bg-[#F4EBDD]" aria-label="Portfolio filter and grid">
       <div className="container-xl">
         {/* Filter bar */}
         <div
@@ -24,11 +24,11 @@ export function WorkFilter() {
               key={f.value}
               onClick={() => setActive(f.value)}
               aria-pressed={active === f.value}
-              className={`px-5 py-2.5 min-h-[42px] rounded-full text-sm font-medium transition-all duration-200 border
+              className={`px-4 py-2 min-h-[38px] rounded-md text-xs md:text-sm font-semibold transition-colors duration-150 border
                 ${
                   active === f.value
-                    ? "bg-[#4F46E5] text-white border-[#4F46E5] shadow-sm"
-                    : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#4F46E5] hover:text-[#4F46E5]"
+                    ? "bg-[#641C2D] text-[#F4EBDD] border-[#641C2D]"
+                    : "bg-[#FAF6EF] text-[#665B57] border-[#D8CBB9] hover:border-[#171514] hover:text-[#171514]"
                 }`}
             >
               {f.label}
@@ -53,8 +53,8 @@ export function WorkFilter() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-24 text-center">
-            <p className="text-lg text-[#94A3B8]">
+          <div className="flex flex-col items-center justify-center py-20 text-center border border-[#D8CBB9] rounded-md bg-[#FAF6EF] p-8">
+            <p className="text-base text-[#665B57]">
               No projects in this category yet.
             </p>
           </div>
