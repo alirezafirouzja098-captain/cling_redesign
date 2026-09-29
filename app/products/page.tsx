@@ -75,6 +75,7 @@ export default function ProductsPage() {
                 image={product.image}
                 cta={product.cta}
                 ctaHref={`/products/${product.slug}`}
+                externalUrl={product.externalUrl}
               />
             ))}
           </div>

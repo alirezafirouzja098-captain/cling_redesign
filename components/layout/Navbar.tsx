@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -23,10 +24,17 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-display font-bold text-xl text-[#0F172A] shrink-0"
+            className="flex items-center gap-2 shrink-0 py-1"
             aria-label="Cling Info Tech home"
           >
-            <span className="text-[#4F46E5]">Cling</span> Info Tech
+            <Image
+              src="/images/branding/logo.png"
+              alt="Cling Info Tech Logo"
+              width={140}
+              height={44}
+              className="h-8 md:h-9 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

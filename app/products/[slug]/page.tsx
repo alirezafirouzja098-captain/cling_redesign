@@ -57,26 +57,36 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <p className="mt-4 text-lg text-[#94A3B8] leading-relaxed">
               {product.description}
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button href={product.ctaHref} variant="primary" size="lg" className="bg-[#06B6D4] hover:bg-[#0891B2]">
                 {product.cta}
               </Button>
+              {product.externalUrl && (
+                <a
+                  href={product.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-lg border border-[#334155] text-white hover:bg-[#1E293B] text-sm font-semibold transition-colors"
+                >
+                  Visit Live Platform &nearr;
+                </a>
+              )}
             </div>
-            {product.status === "available" && (
-               <div className="mt-4 text-xs font-medium text-emerald-400 flex items-center gap-1.5">
-                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Currently Available
+            {(product.status === "available" || product.status === "live") && (
+               <div className="mt-5 text-xs font-medium text-emerald-400 flex items-center gap-2">
+                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Production Ready &bull; Available Now
                </div>
             )}
           </div>
-          <div className="relative h-[300px] sm:h-[400px] rounded-2xl overflow-hidden border border-[#334155] bg-[#1E293B]">
+          <div className="relative h-[320px] sm:h-[420px] rounded-2xl overflow-hidden border border-[#334155] bg-[#0F172A] shadow-2xl">
              <Image 
                src={product.image} 
                alt={`${product.name} screenshot`}
                fill
-               className="object-cover opacity-80"
+               className="object-contain p-4 transition-transform duration-500 hover:scale-[1.02]"
                sizes="(max-width: 1024px) 100vw, 50vw"
+               priority
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] to-transparent opacity-60" />
           </div>
         </div>
       </section>

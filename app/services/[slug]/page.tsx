@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -47,20 +48,34 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* Hero */}
       <section className="bg-[#0B1120] py-20 md:py-28">
         <div className="container-xl">
-          <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#06B6D4]">
-              {service.category}
-            </span>
-            <h1 className="font-display mt-4 text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-              {service.title}
-            </h1>
-            <p className="mt-5 text-lg text-[#94A3B8] leading-relaxed">{service.description}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/contact" variant="primary" size="lg">Start a Project</Button>
-              <Button href="/work" variant="secondary" size="lg" className="border-[#334155] text-white hover:bg-[#1E293B]">
-                View Our Work <ArrowRight size={16} />
-              </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#06B6D4]">
+                {service.category}
+              </span>
+              <h1 className="font-display mt-4 text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                {service.title}
+              </h1>
+              <p className="mt-5 text-lg text-[#94A3B8] leading-relaxed">{service.description}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href="/contact" variant="primary" size="lg">Start a Project</Button>
+                <Button href="/work" variant="secondary" size="lg" className="border-[#334155] text-white hover:bg-[#1E293B]">
+                  View Our Work <ArrowRight size={16} />
+                </Button>
+              </div>
             </div>
+            {service.image && (
+              <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-[#334155]/60 bg-[#1E293B]/40 p-4 backdrop-blur-sm shadow-2xl flex items-center justify-center">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-contain p-6"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

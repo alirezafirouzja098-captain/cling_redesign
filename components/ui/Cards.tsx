@@ -102,6 +102,7 @@ interface ProductCardProps {
   image: string;
   cta: string;
   ctaHref: string;
+  externalUrl?: string;
 }
 
 export function ProductCard({
@@ -112,39 +113,54 @@ export function ProductCard({
   image,
   cta,
   ctaHref,
+  externalUrl,
 }: ProductCardProps) {
   return (
-    <div className="group rounded-2xl bg-[#1E293B] border border-[#334155] overflow-hidden transition-all duration-300 hover:border-[#06B6D4] hover:shadow-2xl hover:-translate-y-1">
-      <div className="relative h-48 overflow-hidden bg-[#0B1120]">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover opacity-80 transition-opacity group-hover:opacity-100"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+    <div className="group rounded-2xl bg-[#1E293B] border border-[#334155] overflow-hidden transition-all duration-300 hover:border-[#06B6D4] hover:shadow-2xl hover:-translate-y-1 flex flex-col justify-between">
+      <div>
+        <div className="relative h-56 overflow-hidden bg-[#0B1120] border-b border-[#334155]">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        <div className="p-8">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#06B6D4]">
+            {category}
+          </span>
+          <h3 className="mt-3 text-2xl font-bold text-white font-display">{name}</h3>
+          <p className="mt-2 text-[#94A3B8] leading-relaxed text-sm">{tagline}</p>
+          <ul className="mt-5 space-y-2">
+            {features.slice(0, 4).map((f) => (
+              <li key={f} className="flex items-center gap-2 text-sm text-[#94A3B8]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="p-8">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#06B6D4]">
-          {category}
-        </span>
-        <h3 className="mt-3 text-2xl font-bold text-white font-display">{name}</h3>
-        <p className="mt-2 text-[#94A3B8] leading-relaxed">{tagline}</p>
-        <ul className="mt-5 space-y-2">
-          {features.slice(0, 4).map((f) => (
-            <li key={f} className="flex items-center gap-2 text-sm text-[#94A3B8]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] flex-shrink-0" />
-              {f}
-            </li>
-          ))}
-        </ul>
+      <div className="px-8 pb-8 pt-2 flex flex-wrap items-center gap-4">
         <Link
           href={ctaHref}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#06B6D4] hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] hover:text-white transition-colors"
         >
           {cta}
           <ArrowRight size={16} />
         </Link>
+        {externalUrl && (
+          <a
+            href={externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#94A3B8] hover:text-white underline underline-offset-4 transition-colors"
+          >
+            Live Platform &nearr;
+          </a>
+        )}
       </div>
     </div>
   );
@@ -200,27 +216,29 @@ interface TeamCardProps {
   name: string;
   role: string;
   image: string;
+  bio?: string;
   linkedin?: string | null;
 }
 
-export function TeamCard({ name, role, image, linkedin }: TeamCardProps) {
+export function TeamCard({ name, role, image, bio, linkedin }: TeamCardProps) {
   return (
-    <div className="flex flex-col items-center text-center gap-4">
-      <div className="relative w-32 h-32 rounded-2xl overflow-hidden bg-[#E2E8F0]">
-        <Image src={image} alt={name} fill className="object-cover" sizes="128px" />
+    <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300">
+      <div className="relative w-36 h-36 rounded-2xl overflow-hidden bg-[#F1F5F9] mb-4 border-2 border-indigo-50 shadow-inner">
+        <Image src={image} alt={name} fill className="object-cover" sizes="144px" />
       </div>
       <div>
-        <div className="font-bold text-[#0F172A] font-display">{name}</div>
-        <div className="text-sm text-[#475569]">{role}</div>
+        <h3 className="font-bold text-[#0F172A] text-lg font-display">{name}</h3>
+        <p className="text-sm font-medium text-[#4F46E5] mt-0.5">{role}</p>
+        {bio && <p className="mt-2 text-xs text-[#64748B] max-w-xs leading-relaxed">{bio}</p>}
         {linkedin && (
           <a
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#4F46E5] hover:underline mt-1 inline-block"
+            className="text-xs text-[#4F46E5] hover:underline mt-2 inline-block font-medium"
             aria-label={`${name} on LinkedIn`}
           >
-            LinkedIn
+            LinkedIn &rarr;
           </a>
         )}
       </div>

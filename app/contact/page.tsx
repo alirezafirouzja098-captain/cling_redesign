@@ -39,14 +39,33 @@ export default function ContactPage() {
 
               <div className="flex flex-col gap-6">
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-2">Email</h3>
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-1">Direct Call</h3>
+                  <a href={`tel:${company.contact.phone}`} className="text-lg font-medium text-[#4F46E5] hover:underline">
+                    {company.contact.phone}
+                  </a>
+                </div>
+
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-1">Email</h3>
                   <a href={`mailto:${company.contact.email}`} className="text-lg font-medium text-[#4F46E5] hover:underline">
                     {company.contact.email}
                   </a>
                 </div>
+
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-2">Offices</h3>
+                  <div className="space-y-3 text-sm text-[#475569]">
+                    {company.contact.offices.map((off) => (
+                      <div key={off.city} className="border-l-2 border-indigo-200 pl-3">
+                        <p className="font-semibold text-[#0F172A]">{off.city}</p>
+                        <p className="text-xs text-[#64748B] mt-0.5">{off.address}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 
                 <div>
-                   <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-2">Social</h3>
+                   <h3 className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-2">Connect</h3>
                    <div className="flex gap-4">
                      {company.socials.linkedin && (
                        <a href={company.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#475569] hover:text-[#4F46E5] transition-colors font-medium">LinkedIn</a>

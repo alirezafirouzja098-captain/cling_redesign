@@ -18,6 +18,19 @@ export function Footer() {
             <p className="text-sm leading-relaxed">
               {company.description}
             </p>
+            <div className="text-xs text-[#94A3B8] space-y-1.5 pt-1 border-t border-[#1E293B]">
+              <p className="font-semibold text-white">Noida &bull; Pune &bull; Moradabad</p>
+              <p className="text-[11px] text-[#64748B]">130-132, 2nd Fl, Wave Galleria, Wave City, Noida - 201015</p>
+              <p className="pt-0.5">
+                <a href="tel:+918264469132" className="text-[#06B6D4] hover:underline font-medium">
+                  +91 8264469132
+                </a>
+                {" "}&bull;{" "}
+                <a href="mailto:info@clinginfotech.com" className="text-[#94A3B8] hover:text-white transition-colors">
+                  info@clinginfotech.com
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-4">
               {company.socials.instagram && (
                 <a

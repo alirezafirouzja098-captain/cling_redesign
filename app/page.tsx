@@ -47,25 +47,74 @@ export default function HomePage() {
           aria-hidden="true"
         />
 
-        <div className="container-xl relative z-10 py-24 md:py-32 lg:py-40">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#06B6D4] mb-6">
-              End-to-end IT Solutions
-            </span>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-              Making Your{" "}
-              <span className="text-gradient">Ideas Happen.</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-[#94A3B8] leading-relaxed max-w-2xl">
-              We build web platforms, mobile apps, ERP systems, and AI products that turn your vision into competitive advantage. Trusted by {company.stats[1].value} clients across the globe.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="/contact" variant="primary" size="lg">
-                Start a Project
-              </Button>
-              <Button href="/work" variant="secondary" size="lg" className="border-[#334155] text-[#F8FAFC] hover:bg-[#1E293B] hover:border-[#475569]">
-                See Our Work <ArrowRight size={18} />
-              </Button>
+        <div className="container-xl relative z-10 py-20 md:py-28 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 text-xs font-semibold text-[#06B6D4] mb-6 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse" />
+                End-to-End Enterprise IT Solutions
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight">
+                Making Your <span className="text-gradient">Ideas Happen.</span>
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-[#94A3B8] leading-relaxed max-w-xl">
+                We engineer scalable web platforms, high-performance mobile apps, enterprise ERP architectures, and custom AI vision systems that turn operational friction into competitive dominance.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href="/contact" variant="primary" size="lg">
+                  Start a Project
+                </Button>
+                <Button href="/work" variant="secondary" size="lg" className="border-[#334155] text-[#F8FAFC] hover:bg-[#1E293B] hover:border-[#475569]">
+                  Explore Portfolio <ArrowRight size={18} />
+                </Button>
+              </div>
+              <div className="mt-10 pt-8 border-t border-[#1E293B] flex flex-wrap items-center gap-6 text-xs text-[#94A3B8]">
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={15} className="text-[#06B6D4]" />
+                  <span>390+ Projects Completed</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={15} className="text-[#06B6D4]" />
+                  <span>350+ Satisfied Clients</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={15} className="text-[#06B6D4]" />
+                  <span>Zero Template Code</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive Architecture Card */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-2xl border border-[#334155] bg-[#1E293B]/80 backdrop-blur-md p-6 shadow-2xl overflow-hidden group hover:border-[#4F46E5] transition-all duration-500">
+                <div className="flex items-center justify-between pb-4 border-b border-[#334155] text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                    <span className="font-mono text-[#94A3B8] ml-2">cling-core-architecture.ts</span>
+                  </div>
+                  <span className="text-[#06B6D4] font-semibold uppercase tracking-wider text-[10px]">Active</span>
+                </div>
+                <div className="mt-4 font-mono text-xs text-[#94A3B8] space-y-2 leading-relaxed">
+                  <p><span className="text-[#818CF8]">const</span> platform = <span className="text-[#06B6D4]">createEnterpriseSolution</span>(&#123;</p>
+                  <p className="pl-4">clientVision: <span className="text-emerald-400">&quot;Scale to multi-region&quot;</span>,</p>
+                  <p className="pl-4">architecture: [<span className="text-emerald-400">&quot;Web&quot;</span>, <span className="text-emerald-400">&quot;Mobile&quot;</span>, <span className="text-emerald-400">&quot;ERP&quot;</span>, <span className="text-emerald-400">&quot;AI&quot;</span>],</p>
+                  <p className="pl-4">slaDelivery: <span className="text-amber-400">&quot;On-Time &amp; Within Scope&quot;</span>,</p>
+                  <p className="pl-4">status: <span className="text-[#06B6D4]">&quot;Shipped&quot;</span></p>
+                  <p>&#125;);</p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#334155] grid grid-cols-2 gap-3 text-center">
+                  <div className="bg-[#0B1120]/80 p-3 rounded-xl border border-[#334155]">
+                    <div className="text-xl font-bold font-display text-white">32M+</div>
+                    <div className="text-[10px] text-[#94A3B8] uppercase tracking-wider mt-0.5">Lines of Code</div>
+                  </div>
+                  <div className="bg-[#0B1120]/80 p-3 rounded-xl border border-[#334155]">
+                    <div className="text-xl font-bold font-display text-[#06B6D4]">1500+</div>
+                    <div className="text-[10px] text-[#94A3B8] uppercase tracking-wider mt-0.5">Client Engagements</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -193,7 +242,8 @@ export default function HomePage() {
                 features={product.features}
                 image={product.image}
                 cta={product.cta}
-                ctaHref={product.ctaHref}
+                ctaHref={`/products/${product.slug}`}
+                externalUrl={product.externalUrl}
               />
             ))}
           </div>
